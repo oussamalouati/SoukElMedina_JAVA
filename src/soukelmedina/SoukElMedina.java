@@ -6,22 +6,55 @@
 package soukelmedina;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author INETEL
  */
 public class SoukElMedina extends Application {
+       /* Delta est  une classe qui contient deux variables quantitatives X et Y 
+    pour determiner la postion de la fenetre */
     
+       final Delta dragDelta = new Delta(); 
     @Override
+    
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
+        /* la ligne 33 permet de cacher le "windows bar/borders"  */
+        stage.initStyle(StageStyle.TRANSPARENT);
+            
+            /*les deux fonction "setOnMousePressed" et "setOnMouseDragged"
+              servent à deplacer la fenetre.  */
+            root.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent mouseEvent) {
+                  dragDelta.x = stage.getX() - mouseEvent.getScreenX();
+                  dragDelta.y = stage.getY() - mouseEvent.getScreenY();
+                }
+              });
+            root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+              @Override public void handle(MouseEvent mouseEvent) {
+                stage.setX(mouseEvent.getScreenX() + dragDelta.x);
+                stage.setY(mouseEvent.getScreenY() + dragDelta.y);
+              }
+            });
+        
+            
+
+            
         Scene scene = new Scene(root);
+        
+        scene.setFill(Color.TRANSPARENT);// cette ligne sert a rendre l'arriere plan transparent .
         
         stage.setScene(scene);
         stage.show();
