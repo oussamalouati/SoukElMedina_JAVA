@@ -5,9 +5,11 @@
  */
 package tests;
 
+import com.jfoenix.controls.JFXButton;
 import utils.Delta;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +27,7 @@ import javafx.stage.StageStyle;
 public class SoukElMedina extends Application {
        /* Delta est  une classe qui contient deux variables quantitatives X et Y 
     pour determiner la postion de la fenetre */
-    
+        
        final Delta dragDelta = new Delta(); 
     @Override
     
@@ -51,14 +53,17 @@ public class SoukElMedina extends Application {
             });
         
             
-
+           
             
         Scene scene = new Scene(root);
         
+         
+         
         scene.setFill(Color.TRANSPARENT);// cette ligne sert a rendre l'arriere plan transparent .
         
         stage.setScene(scene);
         stage.show();
+        
     }
 
     /**

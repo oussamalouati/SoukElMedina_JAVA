@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package soukelmedina;
-import tests.SoukElMedina;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +20,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import static soukelmedina.FXMLDocumentController.nom;
 import static soukelmedina.FXMLDocumentController.prenom;
 import utils.Delta;
@@ -29,9 +28,8 @@ import utils.Delta;
  *
  * @author INETEL
  */
-public class AdminController implements Initializable {
-    
-    final Delta dragDelta = new Delta(); 
+public class VendeurController implements Initializable{
+    final Delta dragDelta = new Delta();
     @FXML
      private Label usr_corrd;
     @FXML
@@ -43,7 +41,7 @@ public class AdminController implements Initializable {
            Stage stage =(Stage) ((Node) event.getSource()).getScene().getWindow();
            stage.setIconified(true);
     }
-     @FXML
+    @FXML
     private void logout(ActionEvent event) throws IOException, Exception {
            Stage  current_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
            

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1149.0" style="-fx-background-color: rgba(255, 0, 0, 0);" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="soukelmedina.VendeurController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="677.0" prefWidth="1204.0">
+         <children>
+            <ImageView fitHeight="737.0" fitWidth="1166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@vendeurbg.jpg" />
+               </image>
+               <viewport>
+                  <Rectangle2D height="708.0" />
+               </viewport>
+               <effect>
+                  <BoxBlur height="0.0" width="0.0" />
+               </effect>
+            </ImageView>
+            <AnchorPane layoutX="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="1149.0" style="-fx-background-color: rgb(0,0,0,0.43);">
+               <children>
+                  <AnchorPane prefHeight="26.0" prefWidth="1149.0" style="-fx-background-color: rgb(37,88,116,0.95);">
+                     <children>
+                        <Label layoutX="550.0" layoutY="5.0" prefHeight="17.0" prefWidth="49.0" text="Veudeur" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <effect>
+                              <Glow level="0.6" />
+                           </effect>
+                        </Label>
+                     </children></AnchorPane>
+                  <AnchorPane layoutX="1034.0" prefHeight="30.0" prefWidth="0.0">
+               <children>
+                  <JFXButton buttonType="RAISED" layoutX="72.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleClose" prefHeight="26.0" prefWidth="32.0" ripplerFill="#e05858" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="#e44c05" glyphName="TIMES_CIRCLE_ALT" size="20" wrappingWidth="17.999996691942215">
+                           <effect>
+                              <Glow level="0.4" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIconView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" cancelButton="true" layoutX="30.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handleMinimize" prefHeight="26.0" prefWidth="32.0" ripplerFill="#e05858" text=" ">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <FontAwesomeIconView cache="true" fill="#e44c05" glyphName="MINUS_SQUARE_ALT" size="19" wrappingWidth="17.999996691942215">
+                           <effect>
+                              <Lighting bumpInput="$null" diffuseConstant="0.93" specularConstant="1.35" specularExponent="0.0" surfaceScale="0.0">
+                                 <light>
+                                    <Light.Distant color="#d37210" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIconView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </AnchorPane>
+                  <AnchorPane layoutY="26.0" prefHeight="52.0" prefWidth="1149.0" style="-fx-background-color: rgb(81,4,32,0.9);">
+                     <children>
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" layoutX="1025.0" layoutY="9.0" onAction="#logout" ripplerFill="#bf1c1c" text="Deconnexion  " textFill="#eee8e8" underline="true">
+                           <font>
+                              <Font name="Calibri" size="12.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="#ffe0e0" glyphName="SIGN_IN" size="25" />
+                           </graphic>
+                        </JFXButton>
+                        <Label fx:id="usr_corrd" layoutX="72.0" layoutY="13.0" text="Nom Prenom du Vendeur" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="21.0" layoutY="13.0" prefHeight="27.0" prefWidth="32.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="78.0" prefHeight="599.0" prefWidth="200.0" style="-fx-background-color: rgb(37,88,116,0.95);">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@logomedi2.png" />
+                           </image>
+                           <effect>
+                              <DropShadow color="#800303" height="69.93" radius="46.695" width="118.85" />
+                           </effect>
+                        </ImageView>
+                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="154.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #08A593;" text="Tableau de bord" textFill="#fce4e4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="TACHOMETER" size="15" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="222.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #08A593;" text="Gerer les magasins" textFill="#fce4e4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" size="15" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="292.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #08A593;" text="Gerer les produits" textFill="#fce4e4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" size="15" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="360.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #08A593;" text="Gestion de compte" textFill="#fce4e4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="GEARS" size="15" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="429.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #08A593;" text="Reclamer" textFill="#fce4e4">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="TICKET" size="15" />
+                           </graphic>
+                        </JFXButton>
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="dashboard" layoutX="229.0" layoutY="104.0" prefHeight="565.0" prefWidth="912.0">
+                     <children>
+                        <AnchorPane style="-fx-background-color: rgb(204,201,38,0.9); -fx-background-radius: 15px;">
+                           <children>
+                              <ImageView fitHeight="129.0" fitWidth="159.0" layoutX="43.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@mag.png" />
+                                 </image>
+                              </ImageView>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS_CIRCLE" layoutX="237.0" layoutY="175.0" size="45" wrappingWidth="43.000000660307705" />
+                              <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="1.0" layoutY="1.0" prefHeight="196.0" prefWidth="294.0" ripplerFill="#b0d750" style="-fx-background-color: rgb(0,0,0,0); -fx-background-radius: 15px;" text="Créer une magasin" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="307.0" style="-fx-background-color: rgb(219,63,107,0.9); -fx-background-radius: 15px;">
+                           <children>
+                              <ImageView fitHeight="129.0" fitWidth="129.0" layoutX="43.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@promo.png" />
+                                 </image>
+                              </ImageView>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS_CIRCLE" layoutX="237.0" layoutY="175.0" size="45" wrappingWidth="43.000000660307705" />
+                              <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="1.0" layoutY="1.0" prefHeight="196.0" prefWidth="294.0" ripplerFill="#b0d750" style="-fx-background-color: rgb(0,0,0,0); -fx-background-radius: 15px;" text="Gestion des promotions" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="23.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

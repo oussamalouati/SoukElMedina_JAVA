@@ -87,7 +87,7 @@
             </AnchorPane>
                   <AnchorPane layoutY="26.0" prefHeight="52.0" prefWidth="1149.0" style="-fx-background-color: rgb(38,33,66,0.99);">
                      <children>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" layoutX="1025.0" layoutY="9.0" ripplerFill="#bf1c1c" text="Deconnexion  " textFill="#eee8e8" underline="true">
+                        <JFXButton fx:id="logout" alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" layoutX="1025.0" layoutY="9.0" onAction="#logout" ripplerFill="#bf1c1c" text="Deconnexion  " textFill="#eee8e8" underline="true">
                            <font>
                               <Font name="Calibri" size="12.0" />
                            </font>
@@ -95,7 +95,7 @@
                               <FontAwesomeIconView fill="#ffe0e0" glyphName="SIGN_IN" size="25" />
                            </graphic>
                         </JFXButton>
-                        <Label layoutX="72.0" layoutY="13.0" text="Nom Prenom du Admin" textFill="WHITE">
+                        <Label fx:id="usr_corrd" layoutX="72.0" layoutY="13.0" text="Nom Prenom du Admin" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>

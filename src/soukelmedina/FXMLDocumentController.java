@@ -45,6 +45,8 @@ import utils.Delta;
  * @author INETEL
  */
 public class FXMLDocumentController implements Initializable {
+    public static String nom;
+    public static String prenom;
     final Delta dragDelta = new Delta(); 
     @FXML
     private JFXButton btn_ins, btn_return,btn_cnx;
@@ -60,6 +62,8 @@ public class FXMLDocumentController implements Initializable {
     private JFXDatePicker date_picker;
     @FXML
     private JFXTextArea adresse_area;
+    @FXML
+    private JFXButton logout;
     
     private FadeTransition fadeIn1 = new FadeTransition(
     Duration.millis(1000)
@@ -72,7 +76,7 @@ public class FXMLDocumentController implements Initializable {
     private void handleClose() {
             System.exit(0);
     }
-     @FXML
+    @FXML
     private void handleMinimize(ActionEvent event) {
            Stage stage =(Stage) an_cnx.getScene().getWindow();
            stage.setIconified(true);
@@ -109,9 +113,11 @@ public class FXMLDocumentController implements Initializable {
     }
     @FXML
     private void Connexion (ActionEvent event) throws SQLException, IOException{
+            Stage  main_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Connexion cn1 =Connexion.getInstance();
             Connection conn = cn1.getConnection();
             String login =   cnx_f_field.getText();
+            System.out.println(login);
             String reqcnx ="SELECT * FROM users WHERE username=?";
             PreparedStatement st=conn.prepareStatement(reqcnx);
             st.setString(1,login);
@@ -121,16 +127,18 @@ public class FXMLDocumentController implements Initializable {
             if (rs.isBeforeFirst()) {
               while (rs.next()) {
                   String mdp = rs.getString("mdp");
+                  nom=rs.getString("nom");
+                  prenom=rs.getString("prenom");
                   if (cnx_mdp_field.getText().equals(mdp)) {
                      String stat = rs.getString("status");
                       switch (stat) {
             case "Admin": 
                 Parent admin_interface =FXMLLoader.load(getClass().getResource("/gui/Admin.fxml"));
                 Scene  admin_scene = new Scene(admin_interface);
-                Stage  main_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                main_stage.hide();
+                main_stage.close();
                 main_stage.setScene(admin_scene);
                 main_stage.show();
+                   
                 
                 /*les deux fonction "setOnMousePressed" et "setOnMouseDragged"
               servent à deplacer la fenetre.  */
@@ -147,7 +155,27 @@ public class FXMLDocumentController implements Initializable {
               }
             });
                      break;
-            case "Vendeur": ;
+            case "Vendeur":
+                Parent vendeur_interface =FXMLLoader.load(getClass().getResource("/gui/Vendeur.fxml"));
+                Scene  vendeur_scene = new Scene(vendeur_interface);
+                main_stage.close();
+                main_stage.setScene(vendeur_scene);
+                main_stage.show();
+                
+                /*les deux fonction "setOnMousePressed" et "setOnMouseDragged"
+              servent à deplacer la fenetre.  */
+            vendeur_interface.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override public void handle(MouseEvent mouseEvent) {
+                  dragDelta.x = main_stage.getX() - mouseEvent.getScreenX();
+                  dragDelta.y = main_stage.getY() - mouseEvent.getScreenY();
+                }
+              });
+            vendeur_interface.setOnMouseDragged(new EventHandler<MouseEvent>() {
+              @Override public void handle(MouseEvent mouseEvent) {
+                main_stage.setX(mouseEvent.getScreenX() + dragDelta.x);
+                main_stage.setY(mouseEvent.getScreenY() + dragDelta.y);
+              }
+            });
                      break;
             case "Client":  ;
                      break;
@@ -177,8 +205,26 @@ public class FXMLDocumentController implements Initializable {
             String adresse = adresse_area.getText();
             String typeCompte = type_acc.getSelectionModel().getSelectedItem();
             String mdp = mdp_field.getText();
-            //test
-            System.out.println(nom+"-"+prenom+"-"+username+"-"+date_naiss+"-"+email+"-"+tel+"-"+adresse+"-"+typeCompte+"-"+mdp);
+            //insertion dans la BD 
+            String reqIns="INSERT INTO users (nom,prenom,username,date_naissance,email,tel,adresse,mdp,status) VALUES  (?,?,?,?,?,?,?,?,?)";
+            PreparedStatement st=conn.prepareStatement(reqIns);
+            st.setString(1,nom);
+            st.setString(2,prenom);
+            st.setString(3,username);
+            st.setString(4,date_naiss);
+            st.setString(5,email);
+            st.setString(6,tel);
+            st.setString(7,adresse);
+            st.setString(8,mdp);
+            st.setString(9,typeCompte);
+            st.executeUpdate();
+            //retour à l'interface de l'inscription
+            an_ins.setVisible(false);
+            ins_ban.setVisible(false);
+            left_ctrl.setVisible(true);
+            an_cnx.setVisible(true);
+            cnx_ban.setVisible(true);
+            fadeIn2.playFromStart();
     }
     
     @Override
