@@ -159,7 +159,7 @@
                            </graphic>
                         </JFXButton>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="dashboard" layoutX="229.0" layoutY="104.0" prefHeight="565.0" prefWidth="912.0" visible="false">
+                  <AnchorPane fx:id="dashboard" layoutX="229.0" layoutY="104.0" prefHeight="565.0" prefWidth="912.0">
                      <children>
                         <AnchorPane style="-fx-background-color: rgb(204,201,38,0.9); -fx-background-radius: 15px;">
                            <children>
@@ -193,7 +193,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="an_gestCompte" layoutX="236.0" layoutY="105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="862.0" style="-fx-background-color: rgb(219,63,107,0.8);">
+                  <AnchorPane fx:id="an_gestCompte" layoutX="236.0" layoutY="105.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="549.0" prefWidth="862.0" style="-fx-background-color: rgb(219,63,107,0.8);" visible="false">
                      <children>
                         <JFXTextField fx:id="nom_field" focusColor="#d66700" labelFloat="true" layoutX="92.0" layoutY="131.0" maxWidth="201.0" minWidth="191.0" prefHeight="31.0" prefWidth="201.0" promptText="Nom" />
                         <JFXTextField fx:id="prenom_field" focusColor="#d66700" labelFloat="true" layoutX="89.0" layoutY="206.0" maxWidth="201.0" minWidth="191.0" prefHeight="31.0" prefWidth="201.0" promptText="Prénom" />
