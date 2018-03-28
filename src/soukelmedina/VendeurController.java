@@ -257,7 +257,7 @@ public class VendeurController implements Initializable{
                         new ExtensionFilter("PNG", new String[]{"*.png"}), 
                         new ExtensionFilter("GIF", new String[]{"*.gif"})});
                     File img = fc_mag.showOpenDialog(null);
-                    Path pathdest = Paths.get("C:/Users/INETEL/Documents/GitHub/SoukElMedina/src/gui/magimg/"+img.getName());
+                    Path pathdest = Paths.get("C:/Users/USER/Documents/GitHub/SoukElMedina_JAVA/src/gui/magimg/"+img.getName());
                     urlImgMag=pathdest.toString();
                     try {         
                         Files.copy(img.toPath(),pathdest, StandardCopyOption.REPLACE_EXISTING);
