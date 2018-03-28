@@ -45,7 +45,7 @@ import utils.Delta;
  * @author INETEL
  */
 public class FXMLDocumentController implements Initializable {
-
+    public static int id;
     public static String nom;
     public static String prenom;
     public static String login;
@@ -172,6 +172,7 @@ public class FXMLDocumentController implements Initializable {
                 String mdp = rs.getString("mdp");
                 nom = rs.getString("nom");
                 prenom = rs.getString("prenom");
+                id   =rs.getInt("id");
                 if (cnx_mdp_field.getText().equals(mdp)) {
                     String stat = rs.getString("status");
                     switch (stat) {
